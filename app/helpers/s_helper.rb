@@ -63,22 +63,7 @@ module SHelper
   #need to parse to: templates/simple_one/assets/previews/demo.png
   #eg: get_host_image_list(@template, 'domo_img')
   def get_demo_image_list(obj, img_col)
-    image_list = []
-
-    case obj.class.to_s
-    when "Templates::Template"
-      obj.send(img_col).to_s.split(ApplicationHelper::SPECIAL_SYMBO_REG).each do |img|
-        next unless img =~ /\.(jpg|png|gif|jpeg)/i
-        image_list << [ENV["ASSETS_HOST"], obj.base_url, img].join('/')
-      end
-    when "Templates::Page", "Templates::Theme"
-      obj.send(img_col).to_s.split(ApplicationHelper::SPECIAL_SYMBO_REG).each do |img|
-        next unless img =~ /\.(jpg|png|gif|jpeg)/i
-        image_list << [ENV["ASSETS_HOST"], obj.template.base_url, img].join('/')
-      end
-    else
-    end
-    return image_list
+    obj.get_demo_image_list(img_col)
   end
 
   #获取应用的菜单

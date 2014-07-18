@@ -24,6 +24,9 @@ gem 'useragent'
 gem 'alipay', :github => 'chloerei/alipay'
 gem 'therubyracer', :platform=>:ruby
 
+#api
+gem 'rails-api'
+
 #for sortable
 gem 'acts_as_list'
 #handle the error: couldn't find file 'jquery-ui'

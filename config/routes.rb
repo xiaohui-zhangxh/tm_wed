@@ -1,5 +1,17 @@
 TmCard::Application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      scope 'cate:cate_id' do
+        resources :templates, except: [:new, :edit] do
+          member do
+            get "fields"
+          end
+        end
+      end
+    end
+  end
+  
   namespace :app do
     get "site/new"
     post "site/create"
